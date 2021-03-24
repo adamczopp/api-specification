@@ -151,38 +151,6 @@ paths:
         '429':
           $ref: "common/common_errors.yml#/components/responses/ThrottledError"
 
-  /v1/10dlc/brands/{brand_id}/vetting/classes:
-    parameters:
-      - $ref: "#/components/parameters/BrandId"
-    get:
-      tags:
-        - Brands
-      summary: Retrieve a list of vetting classifications that can be performed
-      description: |
-        When requesting brand vetting, a vetting class must be supplied. This
-        determines the scope of the vetting to be performed by the vetting
-        provider.
-      operationId: getVettingClasses
-      responses:
-        '200':
-          $ref: '#/components/responses/VettingClasses'
-
-
-  /v1/10dlc/brands/{brand_id}/vetting/providers:
-    parameters:
-      - $ref: "#/components/parameters/BrandId"
-    get:
-      tags:
-        - Brands
-      summary: Retrieve a list of vetting providers
-      description: |
-        When requesting external vetting, a user must select from a list of
-        approved vetting providers.
-      operationId: getVettingProviders
-      responses:
-        '200':
-          $ref: '#/components/responses/VettingProviders'
-
   /v1/10dlc/brands/{brand_id}/vetting/requests:
     parameters:
       - $ref: "#/components/parameters/BrandId"
@@ -414,6 +382,32 @@ paths:
         '404':
           $ref: "common/common_errors.yml#/components/responses/NotFoundError"
 
+  /v1/10dlc/enum/vetting/classes:
+    get:
+      tags:
+        - Brands
+      summary: Retrieve a list of vetting classifications that can be performed
+      description: |
+        When requesting brand vetting, a vetting class must be supplied. This
+        determines the scope of the vetting to be performed by the vetting
+        provider.
+      operationId: getVettingClasses
+      responses:
+        '200':
+          $ref: '#/components/responses/VettingClasses'
+
+  /v1/10dlc/enum/vetting/providers:
+    get:
+      tags:
+        - Brands
+      summary: Retrieve a list of vetting providers
+      description: |
+        When requesting external vetting, a user must select from a list of
+        approved vetting providers.
+      operationId: getVettingProviders
+      responses:
+        '200':
+          $ref: '#/components/responses/VettingProviders'
 components:
   examples:
     BrandNexmo:
