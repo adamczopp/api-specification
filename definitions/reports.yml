@@ -2357,6 +2357,6 @@ x-errors:
     link:
       text: View API reference
       url: /api/reports#cancel-report
-   rate-limit:
+  rate-limit:
     description: The request was rate limited.
     resolution: The Reports API supports 5 requests per second. Slow down your request rate.
