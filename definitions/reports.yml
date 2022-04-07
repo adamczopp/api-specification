@@ -1,6 +1,6 @@
 openapi: '3.0.0'
 info:
-  version: 2.2.1
+  version: 2.2.2
   title: Reports API
   description: |
     The [Reports API](/reports/overview) enables you to request a report of activity for your Vonage account.
@@ -69,7 +69,7 @@ paths:
           example: inbound
         - name: id
           description: |
-            The UUID of the message or call to be searched for. You can specify a comma-separated list of UUIDs. If UUIDs are not found they are listed in the response in the `ids_not_found` field.
+            The UUID of the message or call to be searched for. You can specify a comma-separated list of up to 20 UUIDs. If UUIDs are not found they are listed in the response in the `ids_not_found` field.
 
             If you specify `id`, you must not specify `status`, `date_start` or `date_end`.
           in: query
@@ -102,6 +102,20 @@ paths:
             If you provide this, you must provide `date_start` and must not provide `id`.
           example: '2018-01-01T00:00:00+0000'
           in: query
+        - name: from
+          description: |
+            Request from this number. E.164 format. 
+          in: query
+          schema:
+            type: string
+          example: '441234567890'
+        - name: to
+          description: |
+            Request to this number. E.164 format. 
+          in: query
+          schema:
+            type: string
+          example: '441234567890'
         - name: include_message
           description: Include the message contents in the records. Only applicable for use with products `SMS` and `MESSAGES`, where it is optional.
           in: query
